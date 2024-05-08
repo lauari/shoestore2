@@ -50,6 +50,9 @@ public class Clientes {
      @Column(name = "Estado", nullable = false, length = 36)
      private String Estado;
 
+     @Column(name = "Correo", nullable = false, length = 36)
+     private String Correo;
+
     // @ManyToMany
     // @JoinColumn(name = "idProductos")
     // private Productos Productos;
@@ -58,7 +61,7 @@ public class Clientes {
     }
 
     public Clientes(String idClientes, String tipoDocumento, String numeroDocumento, String primerNombre,
-            String primerApellido, String telefono, String direccion, String ciudad, String estado) {
+            String primerApellido, String telefono, String direccion, String ciudad, String estado, String correo) {
         this.idClientes = idClientes;
         TipoDocumento = tipoDocumento;
         NumeroDocumento = numeroDocumento;
@@ -68,6 +71,7 @@ public class Clientes {
         Direccion = direccion;
         Ciudad = ciudad;
         Estado = estado;
+        Correo = correo;
     }
 
     public String getIdClientes() {
@@ -141,4 +145,12 @@ public class Clientes {
     public void setEstado(String estado) {
         Estado = estado;
     }  
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String correo) {
+        Estado = correo;
+    } 
 }

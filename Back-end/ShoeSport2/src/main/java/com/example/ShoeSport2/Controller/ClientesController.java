@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.ShoeSport2.InterfaceService.IClienteService;
 import com.example.ShoeSport2.models.Clientes;
 
+import lombok.var;
+
 @RestController
 @RequestMapping("/api/v1/Clientes")
 public class ClientesController {
@@ -26,10 +28,10 @@ public class ClientesController {
     @PostMapping("/")
     public ResponseEntity<Object> save(@ModelAttribute("Clientes") Clientes Clientes) {
 
-        // // Verificar que no exista numero de telefono
-        // var listaClientes = ClienteService.userExist(Clientes.getCelular(), Clientes.getCorreo());
+        // Verificar que no exista numero de telefono
+        // var listaClientes = ClienteService.ClientesExist(Clientes.getTelefono(), Clientes.getCorreo());
 
-        // if (listaUser.size() != 0) {
+        // if (listaClientes.size() != 0) {
         //     return new ResponseEntity<>("El correo y/o el numero de celular ya existe", HttpStatus.BAD_REQUEST);
         // }
 
@@ -71,6 +73,12 @@ public class ClientesController {
             return new ResponseEntity<>("Su estado debe ser obligatorio", HttpStatus.BAD_REQUEST);
         }
 
+        
+        if (Clientes.getCorreo().equals("")) {
+
+            return new ResponseEntity<>("El correo debe ser obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
         // todo bien
         ClienteService.save(Clientes);
         return new ResponseEntity<>(Clientes, HttpStatus.OK);
@@ -102,7 +110,7 @@ public class ClientesController {
             Clientes.setTelefono(ClientesUpdate.getTelefono());
             Clientes.setDireccion(ClientesUpdate.getDireccion());
             Clientes.setEstado(ClientesUpdate.getEstado());
-    
+            Clientes.setCorreo(ClientesUpdate.getCorreo());
 
             ClienteService.save(Clientes);
 
