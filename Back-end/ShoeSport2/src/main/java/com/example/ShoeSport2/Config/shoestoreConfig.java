@@ -20,8 +20,7 @@ public class shoestoreConfig {
     //e indicar el acceso a los end point
     @Bean
     public SecurityFilterChain securityFilterChain(
-        HttpSecurity http
-    )throws Exception
+        HttpSecurity http)throws Exception
     {
         return http
         .csrf(csrf ->csrf.disable())

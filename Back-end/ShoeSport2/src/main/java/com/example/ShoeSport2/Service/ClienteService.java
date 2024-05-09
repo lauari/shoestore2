@@ -13,7 +13,7 @@ import com.example.ShoeSport2.models.Clientes;
 
 
 @RestController
-@RequestMapping("/api/v1/Clientes")
+@RequestMapping("/api/v1/Clientes/")
 public class ClienteService implements IClienteService {
 
      

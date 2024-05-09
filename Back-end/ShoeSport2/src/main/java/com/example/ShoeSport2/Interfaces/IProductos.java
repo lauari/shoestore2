@@ -13,15 +13,10 @@ public interface IProductos extends CrudRepository<Productos, String> {
 
     /*
      * nombre producto
-     * descripcion producto
-     * cantidad producto
-     * precio producto
-     * iva producto
-     * descuento producto
      * estado producto
      */
 
-     @Query("SELECT pro FROM Productos pro WHERE pro.NombreProducto LIKE %?1% OR pro.EstadoProducto LIKE %?2%")
-    List<Productos> ProductosExist(String NombreProducto, String EstadoProducto);
+     @Query("SELECT p FROM Productos p WHERE p.nombreProducto = ?1 OR p.EstadoProducto = ?1")
+    List<Productos> ProductosExist(String nombreProducto, String EstadoProducto);
     
 }

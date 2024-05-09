@@ -32,10 +32,10 @@ public class Clientes {
      @Column(name = "NumeroDocumento", nullable = false, length = 36)
      private String NumeroDocumento;
 
-     @Column(name = "Nombre", nullable = false, length = 36)
+     @Column(name = "PrimerNombre", nullable = false, length = 36)
      private String PrimerNombre;
 
-     @Column(name = "Apellido", nullable = false, length = 36)
+     @Column(name = "PrimerApellido", nullable = false, length = 36)
      private String PrimerApellido;
 
      @Column(name = "Telefono", nullable = false, length = 36)
@@ -50,7 +50,7 @@ public class Clientes {
      @Column(name = "Estado", nullable = false, length = 36)
      private String Estado;
 
-     @Column(name = "Correo", nullable = false, length = 36)
+     @Column(name = "Correo", nullable = false, length = 200)
      private String Correo;
 
     // @ManyToMany
@@ -151,6 +151,6 @@ public class Clientes {
     }
 
     public void setCorreo(String correo) {
-        Estado = correo;
+        Correo = correo;
     } 
 }

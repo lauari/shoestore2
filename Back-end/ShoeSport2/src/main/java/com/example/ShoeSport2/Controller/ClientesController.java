@@ -68,18 +68,22 @@ public class ClientesController {
             return new ResponseEntity<>("La direccion es un campo obligatorio", HttpStatus.BAD_REQUEST);
         }
 
+        if (Clientes.getCiudad().equals("")) {
+
+            return new ResponseEntity<>("La ciudad debe ser obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
         if (Clientes.getEstado().equals("")) {
 
             return new ResponseEntity<>("Su estado debe ser obligatorio", HttpStatus.BAD_REQUEST);
         }
-
         
         if (Clientes.getCorreo().equals("")) {
 
             return new ResponseEntity<>("El correo debe ser obligatorio", HttpStatus.BAD_REQUEST);
         }
 
-        // todo bien
+        // // todo bien
         ClienteService.save(Clientes);
         return new ResponseEntity<>(Clientes, HttpStatus.OK);
 
@@ -109,6 +113,7 @@ public class ClientesController {
             Clientes.setPrimerApellido(ClientesUpdate.getPrimerApellido());
             Clientes.setTelefono(ClientesUpdate.getTelefono());
             Clientes.setDireccion(ClientesUpdate.getDireccion());
+            Clientes.setCiudad(ClientesUpdate.getCiudad());
             Clientes.setEstado(ClientesUpdate.getEstado());
             Clientes.setCorreo(ClientesUpdate.getCorreo());
 

@@ -26,42 +26,47 @@ public class ClienteControllerSecurity {
 
         if (Clientes.getTipoDocumento().equals("")) {
 
-            return new ResponseEntity<>("El primer nombre es un campo obligatorio", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("El tipo es un campo obligatorio", HttpStatus.BAD_REQUEST);
         }
 
         if (Clientes.getNumeroDocumento().equals("")) {
 
-            return new ResponseEntity<>("El primer apellido es un campo obligatorio", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("El numero es un campo obligatorio", HttpStatus.BAD_REQUEST);
         }
 
         if (Clientes.getPrimerNombre().equals("")) {
 
-            return new ResponseEntity<>("El numero de telefono es un campo obligatorio", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("El nombre de telefono es un campo obligatorio", HttpStatus.BAD_REQUEST);
         }
 
         if (Clientes.getPrimerApellido().equals("")) {
 
-            return new ResponseEntity<>("El correo es un campo obligatorio", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("El apellido es un campo obligatorio", HttpStatus.BAD_REQUEST);
         }
 
         if (Clientes.getTelefono().equals("")) {
 
-            return new ResponseEntity<>("La contraseña es un campo obligatorio", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("El telefono es un campo obligatorio", HttpStatus.BAD_REQUEST);
         }
 
         if (Clientes.getDireccion().equals("")) {
 
-            return new ResponseEntity<>("Confirme su contraseña correctamente", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("La direccion es un campo obligatorio", HttpStatus.BAD_REQUEST);
         }
 
         if (Clientes.getCiudad().equals("")) {
 
-            return new ResponseEntity<>("Confirme su contraseña correctamente", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("La ciudad es un campo obligatorio", HttpStatus.BAD_REQUEST);
         }
         
         if (Clientes.getEstado().equals("")) {
 
-            return new ResponseEntity<>("Confirme su contraseña correctamente", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("El estado es un campo obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
+        if (Clientes.getCorreo().equals("")) {
+
+            return new ResponseEntity<>("El correo es un campo obligatorio", HttpStatus.BAD_REQUEST);
         }
 
         // todo bien
@@ -95,11 +100,11 @@ public class ClienteControllerSecurity {
             Clientes.setDireccion(ClientesUpdate.getDireccion());
             Clientes.setCiudad(ClientesUpdate.getCiudad());
             Clientes.setEstado(ClientesUpdate.getEstado());
-    
+            Clientes.setCorreo(ClientesUpdate.getCorreo());
 
             ClienteService.save(Clientes);
 
-            return new ResponseEntity<>(Clientes, HttpStatus.OK);
+            return new ResponseEntity<>("Guardado", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Error usuario NO encontrado", HttpStatus.BAD_REQUEST);
         }
